@@ -4,14 +4,14 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
-// launch modal event
+// launch modal form
 function launchModal() {
   modalBackground.style.display = "block";
 }
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 
-// close modal event
+// close modal form
 function closeModal() {
   modalBackground.style.display = "none";
 }
