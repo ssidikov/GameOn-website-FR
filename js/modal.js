@@ -8,6 +8,7 @@ const closeBtn = document.querySelector(".close");
 function launchModal() {
   modalBackground.style.display = "block";
 }
+
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 
