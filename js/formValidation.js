@@ -13,7 +13,7 @@ const confirmation = document.querySelector('.confirmation');
 
 // Regex
 const NamePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/;
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2}/;
 
 // Functions
 // Form validation
@@ -79,27 +79,28 @@ function checkEmail() {
 
 // Birthday validation
 function checkBirthday() {
-    if (birthday.value.trim().length !== 10) {
+    const today = new Date(); // The current date
+    const selectedDate = new Date(birthday.value); // User selected date
+
+    if (!birthday.value.trim()) {
+        birthday.parentElement.setAttribute('data-error', 'Veuillez entrer votre date de naissance.');
         birthday.parentElement.setAttribute('data-error-visible', 'true');
-        birthday.style.border = '2px solid #FF4E60';
+        birthday.style.border = '2px solid #e54858';
         return false;
     }
+
+    // Validate the date of birth
+    if (selectedDate >= today) {
+        birthday.parentElement.setAttribute('data-error', 'Veuillez saisir la date de naissance correcte.');
+        birthday.parentElement.setAttribute('data-error-visible', 'true');
+        birthday.style.border = '2px solid #e54858';
+        return false;
+    }
+
     birthday.parentElement.setAttribute('data-error-visible', 'false');
     birthday.style.border = 'solid #279e7a 3px';
     return true;
 }
-
-// // Tournaments quantity validation
-// function checkTournamentsQuantity() {
-//     if (quantity.value.trim().length === 0 || isNaN(quantity.value.trim()) === true || quantity.value.trim() < 0) {
-//         quantity.parentElement.setAttribute('data-error-visible', 'true');
-//         quantity.style.border = '2px solid #FF4E60';
-//         return false;
-//     }
-//     quantity.parentElement.setAttribute('data-error-visible', 'false');
-//     quantity.style.border = 'solid #279e7a 3px';
-//     return true;
-// }
 
 // Tournaments quantity validation
 function checkTournamentsQuantity() {
@@ -126,7 +127,6 @@ function checkTournamentsQuantity() {
     quantity.style.border = 'solid #279e7a 0.19rem';
     return true;
 }
-
 
 // Locations check
 function checkLocations() {
@@ -203,16 +203,40 @@ form.addEventListener('submit', function (e) {
 
 // Display confirmation modal
 function displayModalSubmit() {
+    // Hide the form modal
+    document.querySelector('.bground').style.display = 'none';
+
     // Show the confirmation modal
     document.querySelector('.confirmation').style.display = 'block';
 
-    // Close the modal when the close button is clicked
+    // Close the confirmation modal when the close button is clicked
     document.querySelector('.confirmation-content__close').addEventListener('click', function () {
         document.querySelector('.confirmation').style.display = 'none';
     });
 
-    // Close the modal when the "Fermer" button is clicked
+    // Close the confirmation modal when the "Fermer" button is clicked
     document.getElementById('confirmation-content__btn').addEventListener('click', function () {
         document.querySelector('.confirmation').style.display = 'none';
     });
 }
+
+// Add event listener for Enter key press to move to next input field
+function handleEnterKeyPress(event) {
+    if (event.key === 'Enter') {
+        const formInputs = Array.from(document.querySelectorAll('.text-control, input[type="radio"], input[type="checkbox"]'));
+        const currentIndex = formInputs.indexOf(event.target);
+        const nextIndex = currentIndex + 1;
+
+        if (nextIndex < formInputs.length) {
+            formInputs[nextIndex].focus();
+        } else {
+            // If last field, submit the form
+            form.submit();
+        }
+    }
+}
+
+// Attach keydown event listener to all text inputs
+document.querySelectorAll('.text-control, input[type="radio"], input[type="checkbox"]').forEach(input => {
+    input.addEventListener('keydown', handleEnterKeyPress);
+});
