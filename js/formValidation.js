@@ -5,7 +5,7 @@ const email = document.getElementById('email');
 const form = document.querySelector('form[name="reserve"]');
 const quantity = document.getElementById('quantity');
 const birthday = document.getElementById('birthday');
-const locations = document.querySelectorAll('#locations .checkbox-input');
+const locations = document.querySelectorAll('#locations input[type="radio"]');
 const checkbox1 = document.getElementById('checkbox1');
 const input = document.getElementsByClassName('text-control');
 const submit = document.getElementById('submit');
@@ -80,14 +80,16 @@ function checkTournamentsQuantity() {
 
 // Locations check
 function checkLocations() {
-    locations.setAttribute('data-error-visible', 'true');
+    let locationsValid = false;
     for (let i = 0; i < locations.length; i++) {
         if (locations[i].checked) {
-            locations.setAttribute('data-error-visible', 'false');
-            return true;
+            locationsValid = true;
+            break;
         }
     }
-    return false;
+    
+    document.getElementById('locations').setAttribute('data-error-visible', !locationsValid);
+    return locationsValid;
 }
 
 // Checkbox check
@@ -110,8 +112,9 @@ formFieldsValidation(email, checkEmail, 'focusout');
 formFieldsValidation(birthday, checkBirthday, 'focusout');
 formFieldsValidation(quantity, checkTournamentsQuantity, 'focusout');
 formFieldsValidation(checkbox1, checkCheckBox, 'click');
-// locations.forEach(location => {
-//     formFieldsValidation(location, checkLocations, 'click');}
+locations.forEach(location => {
+    formFieldsValidation(location, checkLocations, 'click');
+});
 
 // Form validation
 function forAllFieldsValidation() {
