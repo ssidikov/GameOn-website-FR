@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+p {
+  margin: 0;
+}
+
 /* Body Styles */
 
 body {
@@ -149,6 +153,10 @@ span:hover {
   padding: 0;
 }
 
+.hero-section>.btn-signup {
+  display: none;
+}
+
 /* Modal form */
 .bground {
   display: none;
@@ -264,7 +272,7 @@ input {
   font-size: 12px;
   font-weight: normal;
   margin-left: 23px;
-  margin-right: 4px;
+  margin-right: 25px;
 }
 
 .checkbox-label .checkbox-icon,
@@ -278,7 +286,7 @@ input {
   white-space: nowrap;
   position: absolute;
   left: -25px;
-  top: -4px;
+  top: -3px;
   transition: 0.3s;
 }
 
@@ -331,20 +339,6 @@ input {
   top: 19%;
 }
 
-.button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button:hover {
-  background: #3876ac;
-}
-
 .btn-submit,
 .btn-signup {
   background: #fe142f;
@@ -372,10 +366,18 @@ input {
   background: #3876ac;
 }
 
-/* custom select end */
+/* styles for tournament select */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+/* Footer */
+
+footer {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin: 0 20px;
 }
 
 .copyrights {
@@ -386,17 +388,7 @@ input {
   font-weight: bolder;
 }
 
-.hero-section>.btn-signup {
-  display: none;
-}
-
-/* Footer */
-
-footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
-}
+/* Confirmation modal */
 
 .confirmation {
   display: none;
@@ -553,7 +545,6 @@ footer {
 
   label {
     margin: 10px 0;
-    line-height: 100%;
   }
 
   .modal-body {
@@ -561,10 +552,6 @@ footer {
   }
 
   .formData {
-    font-size: 14px;
-  }
-
-  .text-label {
     font-size: 14px;
   }
 
@@ -608,6 +595,7 @@ footer {
     display: block;
     text-align: left;
   }
+
 
   .checkbox-label,
   .checkbox2-label {
@@ -666,6 +654,11 @@ footer {
   .btn-signup {
     font-size: 14px;
     padding: 8px 35px;
+  }
+
+  .checkbox-label,
+  .checkbox2-label {
+    margin-right: 4.2px;
   }
 
   .copyrights {
