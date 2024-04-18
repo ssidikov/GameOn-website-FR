@@ -1,21 +1,17 @@
 // DOM Elements
-const topNav = document.getElementById("topnav")
-const burgerIcon = document.querySelector(".icon")
+const burgerIcon = document.querySelector(".icon");
 const modalBackground = document.querySelector(".modal-background");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
 // Burger menu
-
-function editNav() {
-  if (topNav.classList.contains('responsive')) {
-    topNav.classList.remove("responsive");
-  } else
-    topNav.classList.add("responsive");
+function toggleNav() {
+  const topNav = document.getElementById("topnav");
+  topNav.classList.toggle("responsive");
 }
 
-burgerIcon.addEventListener("click", editNav);
+burgerIcon.addEventListener("click", toggleNav);
 
 // launch modal form
 function launchModal() {
