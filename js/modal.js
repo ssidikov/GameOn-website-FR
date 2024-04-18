@@ -3,6 +3,8 @@ const modalBackground = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
+const topNav = document.getElementById("topnav")
+const burgerIcon = document.querySelector(".icon")
 
 // launch modal form
 function launchModal() {
@@ -22,10 +24,11 @@ closeBtn.addEventListener("click", closeModal);
 // Burger menu
 
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  if (topNav.className === "topnav") {
+    topNav.className += " responsive";
   } else {
-    x.className = "topnav";
+    topNav.className = "topnav";
   }
 }
+
+burgerIcon.addEventListener("click", editNav);

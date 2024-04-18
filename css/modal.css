@@ -45,6 +45,7 @@ span:hover {
 
 .header-logo {
   float: left;
+  margin-right: inherit;
 }
 
 .logo-img {
