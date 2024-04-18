@@ -9,7 +9,6 @@ const locations = document.querySelectorAll('#locations input[type="radio"]');
 const checkbox1 = document.getElementById('checkbox1');
 const input = document.getElementsByClassName('text-control');
 const submit = document.getElementById('submit');
-const confirmation = document.querySelector('.confirmation');
 
 // Regex
 const NamePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/;
@@ -204,7 +203,7 @@ form.addEventListener('submit', function (e) {
 // Display confirmation modal
 function displayModalSubmit() {
     // Hide the form modal
-    document.querySelector('.bground').style.display = 'none';
+    document.querySelector('.modal-background').style.display = 'none';
 
     // Show the confirmation modal
     document.querySelector('.confirmation').style.display = 'block';

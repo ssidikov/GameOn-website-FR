@@ -159,7 +159,7 @@ span:hover {
 }
 
 /* Modal form */
-.bground {
+.modal-background {
   display: none;
   position: fixed;
   z-index: 1;
