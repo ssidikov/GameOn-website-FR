@@ -1,90 +1,86 @@
 // Dom elements
-const firstName = document.getElementById('first');
-const lastName = document.getElementById('last');
-const email = document.getElementById('email');
-const form = document.querySelector('form[name="reserve"]');
-const quantity = document.getElementById('quantity');
-const birthday = document.getElementById('birthday');
 const locations = document.querySelectorAll('#locations input[type="radio"]');
-const checkbox1 = document.getElementById('checkbox1');
-const input = document.getElementsByClassName('text-control');
+const form = document.querySelector('form[name="reserve"]');
 const submit = document.getElementById('submit');
 
-// Regex
-const NamePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/;
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2}/;
+// Regex patterns
+const NamePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/; // Regex for first and last name
 
-// Functions
 // Form validation
 // First name validation
 function checkFirstName() {
+    const firstName = document.getElementById('first');
     const trimmedValue = firstName.value.trim();
-    if (trimmedValue.length === 0) {
+    if (trimmedValue.length < 2) {
         firstName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus.');
         firstName.parentElement.setAttribute('data-error-visible', 'true');
-        firstName.style.border = '2px solid #e54858';
+        firstName.style.border = '2px solid #ff4e60';
         return false;
     }
-    if (trimmedValue.length < 2 || !trimmedValue.match(NamePattern)) {
+    if (!trimmedValue.match(NamePattern)) {
         firstName.parentElement.setAttribute('data-error', 'Veuillez saisir uniquement des lettres.');
         firstName.parentElement.setAttribute('data-error-visible', 'true');
-        firstName.style.border = '2px solid #e54858';
+        firstName.style.border = '2px solid #ff4e60';
         return false;
     }
     firstName.parentElement.setAttribute('data-error-visible', 'false');
-    firstName.style.border = 'solid #279e7a 0.19rem';
+    firstName.style.border = '3px solid #279e7a';
     return true;
 }
 
 // Last name validation
 function checkLastName() {
+    const lastName = document.getElementById('last');
     const trimmedValue = lastName.value.trim();
-    if (trimmedValue.length === 0) {
+    if (trimmedValue.length < 2) {
         lastName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus.');
         lastName.parentElement.setAttribute('data-error-visible', 'true');
-        lastName.style.border = '2px solid #e54858';
+        lastName.style.border = '2px solid #ff4e60';
         return false;
     }
-    if (trimmedValue.length < 2 || !trimmedValue.match(NamePattern)) {
+    if (!trimmedValue.match(NamePattern)) {
         lastName.parentElement.setAttribute('data-error', 'Veuillez saisir uniquement des lettres.');
         lastName.parentElement.setAttribute('data-error-visible', 'true');
-        lastName.style.border = '2px solid #e54858';
+        lastName.style.border = '2px solid #ff4e60';
         return false;
     }
     lastName.parentElement.setAttribute('data-error-visible', 'false');
-    lastName.style.border = 'solid #279e7a 0.19rem';
+    lastName.style.border = '3px solid #279e7a';
     return true;
 }
 
 // Email validation
 function checkEmail() {
+    const email = document.getElementById('email');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2}/; // Regex
     const trimmedValue = email.value.trim();
     if (trimmedValue.length === 0) {
         email.parentElement.setAttribute('data-error', 'Veuillez entrer votre email.');
         email.parentElement.setAttribute('data-error-visible', 'true');
-        email.style.border = '2px solid #e54858';
+        email.style.border = '2px solid #ff4e60';
         return false;
     }
     if (!trimmedValue.match(emailPattern)) {
         email.parentElement.setAttribute('data-error', 'Veuillez entrer une adresse e-mail valide.');
         email.parentElement.setAttribute('data-error-visible', 'true');
-        email.style.border = '2px solid #e54858';
+        email.style.border = '2px solid #ff4e60';
         return false;
     }
     email.parentElement.setAttribute('data-error-visible', 'false');
-    email.style.border = 'solid #279e7a 0.19rem';
+    email.style.border = '3px solid #279e7a';
     return true;
 }
 
 // Birthday validation
 function checkBirthday() {
+    const birthday = document.getElementById('birthday');
     const today = new Date(); // The current date
     const selectedDate = new Date(birthday.value); // User selected date
 
     if (!birthday.value.trim()) {
         birthday.parentElement.setAttribute('data-error', 'Veuillez entrer votre date de naissance.');
         birthday.parentElement.setAttribute('data-error-visible', 'true');
-        birthday.style.border = '2px solid #e54858';
+        birthday.style.border = '2px solid #ff4e60';
         return false;
     }
 
@@ -92,7 +88,7 @@ function checkBirthday() {
     if (selectedDate >= today) {
         birthday.parentElement.setAttribute('data-error', 'Veuillez saisir la date de naissance correcte.');
         birthday.parentElement.setAttribute('data-error-visible', 'true');
-        birthday.style.border = '2px solid #e54858';
+        birthday.style.border = '2px solid #ff4e60';
         return false;
     }
 
@@ -103,27 +99,28 @@ function checkBirthday() {
 
 // Tournaments quantity validation
 function checkTournamentsQuantity() {
+    const quantity = document.getElementById('quantity');
     const trimmedValue = quantity.value.trim();
     if (trimmedValue.length === 0) {
         quantity.parentElement.setAttribute('data-error', 'Ce champ est obligatoire, si vous n\'avez jamais participé auparavant, veuillez saisir 0.');
         quantity.parentElement.setAttribute('data-error-visible', 'true');
-        quantity.style.border = '2px solid #e54858';
+        quantity.style.border = '2px solid #ff4e60';
         return false;
     }
     if (isNaN(trimmedValue) || !Number.isInteger(Number(trimmedValue))) {
         quantity.parentElement.setAttribute('data-error', 'Veuillez saisir une valeur numérique.');
         quantity.parentElement.setAttribute('data-error-visible', 'true');
-        quantity.style.border = '2px solid #e54858';
+        quantity.style.border = '2px solid #ff4e60';
         return false;
     }
     if (Number(trimmedValue) > 99) {
         quantity.parentElement.setAttribute('data-error', 'Veuillez indiquer la quantité correcte.');
         quantity.parentElement.setAttribute('data-error-visible', 'true');
-        quantity.style.border = '2px solid #e54858';
+        quantity.style.border = '2px solid #ff4e60';
         return false;
     }
     quantity.parentElement.setAttribute('data-error-visible', 'false');
-    quantity.style.border = 'solid #279e7a 0.19rem';
+    quantity.style.border = '3px solid #279e7a';
     return true;
 }
 
@@ -143,6 +140,7 @@ function checkLocations() {
 
 // Checkbox check
 function checkCheckBox() {
+    const checkbox1 = document.getElementById('checkbox1');
     if (checkbox1.checked === false) {
         checkbox1.parentElement.setAttribute('data-error-visible', 'true');
         return false;
@@ -155,12 +153,14 @@ function checkCheckBox() {
 function formFieldsValidation(element, method, event) {
     element.addEventListener(event, method);
 }
-formFieldsValidation(firstName, checkFirstName, 'focusout');
-formFieldsValidation(lastName, checkLastName, 'focusout');
-formFieldsValidation(email, checkEmail, 'focusout');
-formFieldsValidation(birthday, checkBirthday, 'focusout');
-formFieldsValidation(quantity, checkTournamentsQuantity, 'focusout');
-formFieldsValidation(checkbox1, checkCheckBox, 'click');
+
+formFieldsValidation(document.getElementById('first'), checkFirstName, 'focusout');
+formFieldsValidation(document.getElementById('last'), checkLastName, 'focusout');
+formFieldsValidation(document.getElementById('email'), checkEmail, 'focusout');
+formFieldsValidation(document.getElementById('birthday'), checkBirthday, 'focusout');
+formFieldsValidation(document.getElementById('quantity'), checkTournamentsQuantity, 'focusout');
+formFieldsValidation(document.getElementById('checkbox1'), checkCheckBox, 'click');
+
 locations.forEach(location => {
     formFieldsValidation(location, checkLocations, 'click');
 });
@@ -194,7 +194,6 @@ form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (formValidation() == true) {
         displayModalSubmit(); // Show confirmation modal on successful form submission
-        document.querySelector('form[name="reserve"]').reset();
     } else {
         forAllFieldsValidation();
     }
@@ -211,31 +210,12 @@ function displayModalSubmit() {
     // Close the confirmation modal when the close button is clicked
     document.querySelector('.confirmation-content__close').addEventListener('click', function () {
         document.querySelector('.confirmation').style.display = 'none';
+        form.submit();
     });
 
     // Close the confirmation modal when the "Fermer" button is clicked
     document.getElementById('confirmation-content__btn').addEventListener('click', function () {
         document.querySelector('.confirmation').style.display = 'none';
+        form.submit();
     });
 }
-
-// Add event listener for Enter key press to move to next input field
-function handleEnterKeyPress(event) {
-    if (event.key === 'Enter') {
-        const formInputs = Array.from(document.querySelectorAll('.text-control, input[type="radio"], input[type="checkbox"]'));
-        const currentIndex = formInputs.indexOf(event.target);
-        const nextIndex = currentIndex + 1;
-
-        if (nextIndex < formInputs.length) {
-            formInputs[nextIndex].focus();
-        } else {
-            // If last field, submit the form
-            form.submit();
-        }
-    }
-}
-
-// Attach keydown event listener to all text inputs
-document.querySelectorAll('.text-control, input[type="radio"], input[type="checkbox"]').forEach(input => {
-    input.addEventListener('keydown', handleEnterKeyPress);
-});
