@@ -1,8 +1,3 @@
-// Dom elements
-const locations = document.querySelectorAll('#locations input[type="radio"]');
-const form = document.querySelector('form[name="reserve"]');
-const submit = document.getElementById('submit');
-
 // Regex patterns for first name and last name
 const NamePattern = /^(?![\s])[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/; // Regex for first and last name
 
@@ -126,7 +121,8 @@ function checkTournamentsQuantity() {
 
 // Locations check
 function checkLocations() {
-    const locationsCheck = document.getElementById('locations');
+    const locationsContainer = document.getElementById('locations');
+    const locations = document.querySelectorAll('#locations input[type="radio"]');
     let locationsValid = false;
     for (let i = 0; i < locations.length; i++) {
         if (locations[i].checked) {
@@ -135,8 +131,8 @@ function checkLocations() {
         }
     }
     
-    locationsCheck.setAttribute('data-error', 'Veuillez sélectionner une ville')
-    locationsCheck.setAttribute('data-error-visible', !locationsValid);
+    locationsContainer.setAttribute('data-error', 'Veuillez sélectionner une ville')
+    locationsContainer.setAttribute('data-error-visible', !locationsValid);
     return locationsValid;
 }
 
@@ -164,7 +160,7 @@ formFieldsValidation(document.getElementById('birthday'), checkBirthday, 'focuso
 formFieldsValidation(document.getElementById('quantity'), checkTournamentsQuantity, 'focusout');
 formFieldsValidation(document.getElementById('checkbox1'), checkCheckBox, 'click');
 
-locations.forEach(location => {
+document.querySelectorAll('#locations input[type="radio"]').forEach(location => {
     formFieldsValidation(location, checkLocations, 'click');
 });
 
@@ -193,7 +189,8 @@ function formValidation() {
 }
 
 // Form submission
-form.addEventListener('submit', function (e) {
+// const form = document.querySelector('form[name="reserve"]');
+document.querySelector('form[name="reserve"]').addEventListener('submit', function (e) {
     e.preventDefault();
     if (formValidation() == true) {
         displayModalSubmit(); // Show confirmation modal on successful form submission
@@ -213,12 +210,12 @@ function displayModalSubmit() {
     // Close the confirmation modal when the close button is clicked
     document.querySelector('.confirmation-content__close').addEventListener('click', function () {
         document.querySelector('.confirmation').style.display = 'none';
-        form.submit();
+        document.querySelector('form[name="reserve"]').submit();
     });
 
     // Close the confirmation modal when the "Fermer" button is clicked
     document.getElementById('confirmation-content__btn').addEventListener('click', function () {
         document.querySelector('.confirmation').style.display = 'none';
-        form.submit();
+        document.querySelector('form[name="reserve"]').submit();
     });
 }
