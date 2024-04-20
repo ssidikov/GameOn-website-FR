@@ -1,7 +1,7 @@
 // Burger menu
 function toggleNav() {
-  const topNav = document.getElementById("topnav");
-  topNav.classList.toggle("responsive");
+  const navigation = document.getElementById("navigation");
+  navigation.classList.toggle("responsive");
 }
 
 document.querySelector(".icon").addEventListener("click", toggleNav);

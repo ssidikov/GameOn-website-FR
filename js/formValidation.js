@@ -1,7 +1,6 @@
 // Regex patterns for first name and last name
-const NamePattern = /^(?![\s])[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/; // Regex for first and last name
+const NamePattern = /^(?![\s])[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/;
 
-// Form validation
 // First name validation
 function checkFirstName() {
     const firstName = document.getElementById('first');
