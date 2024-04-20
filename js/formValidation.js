@@ -3,8 +3,8 @@ const locations = document.querySelectorAll('#locations input[type="radio"]');
 const form = document.querySelector('form[name="reserve"]');
 const submit = document.getElementById('submit');
 
-// Regex patterns
-const NamePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/; // Regex for first and last name
+// Regex patterns for first name and last name
+const NamePattern = /^(?![\s])[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/; // Regex for first and last name
 
 // Form validation
 // First name validation
@@ -12,7 +12,7 @@ function checkFirstName() {
     const firstName = document.getElementById('first');
     const trimmedValue = firstName.value.trim();
     if (trimmedValue.length < 2) {
-        firstName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus.');
+        firstName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.');
         firstName.parentElement.setAttribute('data-error-visible', 'true');
         firstName.style.border = '2px solid #ff4e60';
         return false;
@@ -33,7 +33,7 @@ function checkLastName() {
     const lastName = document.getElementById('last');
     const trimmedValue = lastName.value.trim();
     if (trimmedValue.length < 2) {
-        lastName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus.');
+        lastName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus pour le champ du nom.');
         lastName.parentElement.setAttribute('data-error-visible', 'true');
         lastName.style.border = '2px solid #ff4e60';
         return false;
@@ -114,7 +114,7 @@ function checkTournamentsQuantity() {
         return false;
     }
     if (Number(trimmedValue) > 99) {
-        quantity.parentElement.setAttribute('data-error', 'Veuillez indiquer la quantité correcte.');
+        quantity.parentElement.setAttribute('data-error', 'Veuillez saisir la quantité correcte (maximum 2 chiffres).');
         quantity.parentElement.setAttribute('data-error-visible', 'true');
         quantity.style.border = '2px solid #ff4e60';
         return false;
@@ -126,6 +126,7 @@ function checkTournamentsQuantity() {
 
 // Locations check
 function checkLocations() {
+    const locationsCheck = document.getElementById('locations');
     let locationsValid = false;
     for (let i = 0; i < locations.length; i++) {
         if (locations[i].checked) {
@@ -134,7 +135,8 @@ function checkLocations() {
         }
     }
     
-    document.getElementById('locations').setAttribute('data-error-visible', !locationsValid);
+    locationsCheck.setAttribute('data-error', 'Veuillez sélectionner une ville')
+    locationsCheck.setAttribute('data-error-visible', !locationsValid);
     return locationsValid;
 }
 
@@ -142,6 +144,7 @@ function checkLocations() {
 function checkCheckBox() {
     const checkbox1 = document.getElementById('checkbox1');
     if (checkbox1.checked === false) {
+        checkbox1.parentElement.setAttribute('data-error', 'Vous devez vérifier que vous acceptez les termes et conditions.');
         checkbox1.parentElement.setAttribute('data-error-visible', 'true');
         return false;
     }
