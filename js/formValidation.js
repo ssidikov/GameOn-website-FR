@@ -101,13 +101,7 @@ function checkTournamentsQuantity() {
         quantity.style.border = '2px solid #ff4e60';
         return false;
     }
-    if (isNaN(trimmedValue) || !Number.isInteger(Number(trimmedValue))) {
-        quantity.parentElement.setAttribute('data-error', 'Veuillez saisir une valeur numérique.');
-        quantity.parentElement.setAttribute('data-error-visible', 'true');
-        quantity.style.border = '2px solid #ff4e60';
-        return false;
-    }
-    if (Number(trimmedValue) > 99) {
+    if (Number.isInteger(Number(trimmedValue)) && (Number(trimmedValue) < 0 || Number(trimmedValue) >= 99)) {
         quantity.parentElement.setAttribute('data-error', 'Veuillez saisir la quantité correcte (maximum 2 chiffres).');
         quantity.parentElement.setAttribute('data-error-visible', 'true');
         quantity.style.border = '2px solid #ff4e60';
