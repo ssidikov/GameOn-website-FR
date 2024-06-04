@@ -9,10 +9,15 @@ GameOn est une PME spécialisée dans l'organisation de conférences et de conco
 ## Objectifs:
 
 ● Développement avec JavaScript
+
 ● Créer une interaction dynamique avec les utilisateurs
+
 ● Réaliser un formulaire avec JavaScript
+
 ● Validation du formulaire
+
 ● Réalisation du responsive du site
+
 ● Utilisez Git et GitHub pour le contrôle de version
 
 ## Interactions entre JavaScript, HTML et CSS
@@ -40,8 +45,6 @@ HTML / CSS / JS
 ● Figma pour accéder aux maquettes du projet.
 ● Visual Studio Code pour l'écriture et la gestion du code.
 ● GitHub pour le versionnement de mon projet.
-
-HTML / CSS / JS
 
 ## Compétences développées
 
