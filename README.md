@@ -38,7 +38,7 @@ J'ai géré les événements JavaScript, tels que les clics de bouton ou les ent
 
 ## Technologies utilisées:
 
-HTML / CSS / JS
+HTML / CSS / JS / Flexbox
 
 ## Outils utilisés
 
