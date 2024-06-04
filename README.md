@@ -24,15 +24,15 @@ GameOn est une PME spécialisée dans l'organisation de conférences et de conco
 
 Ce projet m'a permis de comprendre comment JavaScript, HTML, et CSS interagissent pour créer des pages web dynamiques. J'ai appris à manipuler le DOM (Document Object Model) pour rendre le site plus interactif et réactif.
 
-# JavaScript Vanilla
+## JavaScript Vanilla
 
 J'ai appris les bases de JavaScript Vanilla, le JavaScript pur sans l'utilisation de bibliothèques ou de frameworks. Cette approche m'a donné une compréhension solide des fondamentaux de la programmation en JavaScript.
 
-# Validation de formulaire
+## Validation de formulaire
 
 J'ai travaillé sur la validation du formulaire pour garantir que les données saisies par les utilisateurs sont correctes et répondent aux critères établis. Cette validation comprend la vérification des champs obligatoires, des formats de données, et des contraintes spécifiques.
 
-# Gestion des événements JavaScript
+## Gestion des événements JavaScript
 
 J'ai géré les événements JavaScript, tels que les clics de bouton ou les entrées de formulaire, pour créer une interaction dynamique avec les utilisateurs. Cela inclut l'ajout d'écouteurs d'événements et la définition de fonctions de rappel pour manipuler les données saisies.
 
