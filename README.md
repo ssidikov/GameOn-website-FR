@@ -4,13 +4,18 @@
 
 ![screenshot du site](./img/logo.svg)
 
+GameOn est une PME spécialisée dans l'organisation de conférences et de concours de jeux.
+
 ## Objectifs:
 
-Ce projet est une introduction au développement avec JavaScript, où j'ai travaillé pour une entreprise organisant des concours de jeux. Mon objectif principal était de réaliser un formulaire avec JavaScript. Le code HTML et CSS du site ainsi que les maquettes étaient à ma disposition.
+● Développement avec JavaScript
+● Créer une interaction dynamique avec les utilisateurs
+● Réaliser un formulaire avec JavaScript
+● Validation du formulaire
+● Réalisation du responsive du site
+● Utilisez Git et GitHub pour le contrôle de version
 
-## Contenu du projet
-
-# Interactions entre JavaScript, HTML et CSS
+## Interactions entre JavaScript, HTML et CSS
 
 Ce projet m'a permis de comprendre comment JavaScript, HTML, et CSS interagissent pour créer des pages web dynamiques. J'ai appris à manipuler le DOM (Document Object Model) pour rendre le site plus interactif et réactif.
 
