@@ -43,15 +43,23 @@ HTML / CSS / JS
 ## Outils utilisés
 
 ● Figma pour accéder aux maquettes du projet.
+
 ● Visual Studio Code pour l'écriture et la gestion du code.
+
 ● GitHub pour le versionnement de mon projet.
 
 ## Compétences développées
 
 ● Compréhension approfondie de l'interaction entre JavaScript, HTML, et CSS.
+
 ● Maîtrise des bases de JavaScript Vanilla.
+
 ● Validation des formulaires pour garantir l'exactitude et la conformité des données utilisateurs.
+
 ● Gestion des événements JavaScript pour des interactions dynamiques avec les utilisateurs.
+
 ● Utilisation de Figma pour travailler avec les maquettes.
+
 ● Utilisation de Visual Studio Code pour coder et gérer les fichiers du projet.
+
 ● Utilisation de GitHub pour la gestion de version et la collaboration sur des projets de développement web.
